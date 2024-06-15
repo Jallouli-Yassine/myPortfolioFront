@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/tiny-slider/dist/tiny-slider.css",
               "src/styles.css"
             ],
             "scripts": []
