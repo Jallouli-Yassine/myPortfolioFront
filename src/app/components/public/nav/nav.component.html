@@ -24,19 +24,25 @@
         </div><!--//profile-section-->
 
         <ul class="navbar-nav flex-column text-start">
-          <li class="nav-item">
-
-            <a class="nav-link active" routerLink=''><i class="fas fa-user fa-fw me-2"></i>About Me<span class="sr-only">(current)</span></a>
+          <li class="nav-item" routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link" routerLink="/home">
+              <i class="fas fa-user fa-fw me-2"></i>About Me
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink='projects'><i class="fas fa-laptop-code fa-fw me-2"></i>Projects</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="projects">
+              <i class="fas fa-laptop-code fa-fw me-2"></i>Projects
+            </a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" routerLink='resume'><i class="fas fa-file-alt fa-fw me-2"></i>Resume</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="resume">
+              <i class="fas fa-file-alt fa-fw me-2"></i>Resume
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink='contact'><i class="fas fa-envelope-open-text fa-fw me-2"></i>Contact</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="contact">
+              <i class="fas fa-envelope-open-text fa-fw me-2"></i>Contact
+            </a>
           </li>
         </ul>
 

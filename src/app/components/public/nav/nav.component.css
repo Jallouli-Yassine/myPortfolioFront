@@ -1,0 +1,7 @@
+.nav-item.active .nav-link {
+  font-weight: bold; /* Example: change font-weight */
+  color: rgba(0,0,0,0.5); /* Example: change text color */
+}
+.header .nav-item .nav-link:hover {
+  color: rgba(0,0,0,0.6)
+}
