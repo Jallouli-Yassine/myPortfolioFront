@@ -8,12 +8,12 @@ import {Skill} from "../_models/skills";
 })
 export class SkillService {
 
-  private apiUrl = 'http://localhost:3000/api/skills';  // Adjust URL as needed
+  private apiUrl = 'http://localhost:3000/skill';
 
   constructor(private http: HttpClient) { }
 
   getSkills(): Observable<Skill[]> {
-    return this.http.get<Skill[]>(this.apiUrl);
+    return this.http.get<Skill[]>(`${this.apiUrl}/allSkills`);
   }
 
   addSkill(skill: Skill): Observable<Skill> {
