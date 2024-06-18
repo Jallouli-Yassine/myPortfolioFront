@@ -3,17 +3,33 @@
   <section class="overview-section p-3 p-lg-5">
     <div class="container">
       <h2 class="section-title font-weight-bold mb-3">What I do</h2>
-      <div class="section-intro mb-5">I have more than 10 years' experience building software for clients all over the world. Below is a quick overview of my main technical skill sets and technologies I use. Want to find out more about my experience? Check out my <a class="text-link" href="resume.html">online resume</a> and <a class="text-link" href="portfolio.html">project portfolio</a>.</div>
+      <div class="section-intro mb-5">I am a seasoned software developer with over 5 years of experience building high-quality software solutions for clients globally. My expertise spans various domains and technologies, allowing me to deliver robust, scalable, and efficient solutions tailored to meet client needs. Below is a quick overview of my core technical skill sets and the technologies I utilize:</div>
+      <h2 class="section-title font-weight-bold mb-3">Main technologies </h2>
+
       <div class="row">
 
-        <div *ngFor="let s of skillsList; let index = index" class="item col-6 col-lg-3">
+        <div *ngFor="let s of skillsList; let index = index" class="item col-6 col-lg-3 mb-5">
           <div class="item-inner">
-            <div class="item-icon"><i class="fab fa-angular me-2"></i><i class="fab fa-react me-2"></i><i class="fab fa-vuejs"></i></div>
+            <div class="item-icon">
+              <img width="48" [src]=" 'http://localhost:3000/uploads/skills/' + s.image" alt="{{ s.name }}">
+
+            </div>
             <h3 class="item-title">{{s.name}}</h3>
             <div class="item-desc"> {{s.description}} </div>
           </div><!--//item-inner-->
         </div><!--//item-->
 
+        <h2 style="margin-left: 1.2%" class="section-title font-weight-bold mb-3">Tools i use </h2>
+
+        <div *ngFor="let s of toolsList; let index = index" class="item col-6 col-lg-3 mb-5">
+          <div class="item-inner">
+            <div class="item-icon">
+              <img width="48" [src]=" 'http://localhost:3000/uploads/skills/' + s.image" alt="{{ s.name }}">
+            </div>
+            <h3 class="item-title">{{s.name}}</h3>
+            <div class="item-desc"> {{s.description}} </div>
+          </div><!--//item-inner-->
+        </div><!--//item-->
       </div><!--//row-->
 
 

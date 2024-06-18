@@ -16,7 +16,11 @@ export class SkillService {
     return this.http.get<Skill[]>(`${this.apiUrl}/allSkills`);
   }
 
+  getPicsSkills(): any{
+    return this.http.get<any>(`${this.apiUrl}/getImageOptions`);
+  }
+
   addSkill(skill: Skill): Observable<Skill> {
-    return this.http.post<Skill>(this.apiUrl, skill);
+    return this.http.post<Skill>(this.apiUrl+'/addSkill', skill);
   }
 }

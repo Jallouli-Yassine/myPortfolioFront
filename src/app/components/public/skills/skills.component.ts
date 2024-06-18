@@ -11,14 +11,17 @@ import {SkillService} from "../../../_services/skill.service";
 })
 export class SkillsComponent implements OnInit {
   skillsList: Skill[] = [];
+  toolsList: Skill[] = [];
   //activeFilter: string = 'All'; // Default active filter
 
   constructor(private skillsService: SkillService) { }
 
   ngOnInit(): void {
     this.skillsService.getSkills().subscribe(skills => {
-      this.skillsList = skills;
+      this.toolsList=skills.filter(skill => skill.category === 'Tool');
+      this.skillsList = skills.filter(skill => skill.category !== 'Tool');
     });
+
   }
 /*
   getFilteredProjects(): Project[] {

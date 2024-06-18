@@ -15,6 +15,8 @@ import { SkillsComponent } from './components/public/skills/skills.component';
 import { ResumeComponent } from './components/public/resume/resume.component';
 import { SkillsANDcarouselComponent } from './components/public/skills-andcarousel/skills-andcarousel.component';
 import { ContactComponent } from './components/public/contact/contact.component';
+import { AddSkillComponent } from './components/private/private-modules/add-skill/add-skill.component';
+import { DarkModeToggleComponent } from './dark-mode-toggle/dark-mode-toggle.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,14 @@ import { ContactComponent } from './components/public/contact/contact.component'
     ResumeComponent,
     SkillsANDcarouselComponent,
     ContactComponent,
+    AddSkillComponent,
+    DarkModeToggleComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
