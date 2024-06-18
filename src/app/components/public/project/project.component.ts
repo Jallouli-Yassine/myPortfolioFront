@@ -19,12 +19,14 @@ export class ProjectComponent implements OnInit {
     });
   }
 
+
   getFilteredProjects(): Project[] {
     if (this.activeFilter === 'All') {
       return this.projectsList;
     }
     return this.projectsList.filter(project => project.type === this.activeFilter);
   }
+
   setActiveFilter(type: string): void {
     this.activeFilter = type;
   }

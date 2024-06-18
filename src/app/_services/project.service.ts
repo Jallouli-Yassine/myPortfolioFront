@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {Project} from "../_models/project";
@@ -14,7 +14,9 @@ export class ProjectService {
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(`${this.apiUrl}/allProjects`);
   }
-  addProject(project: Project): Observable<Project> {
-    return this.http.post<Project>(this.apiUrl, project);
+  addProject(project: FormData): Observable<Project> {
+    const headers = new HttpHeaders({ 'enctype': 'multipart/form-data' });
+    return this.http.post<Project>(this.apiUrl + "/addProject", project, { headers });
   }
+
 }

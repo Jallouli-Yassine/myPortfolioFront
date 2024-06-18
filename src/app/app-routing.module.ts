@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/public/home/home.component';
 import { Page404Component } from './components/public/page404/page404.component';
 import {ProjectComponent} from "./components/public/project/project.component";
-import {SkillsANDcarouselComponent} from "./components/public/skills-andcarousel/skills-andcarousel.component";
 import {ResumeComponent} from "./components/public/resume/resume.component";
 import {ContactComponent} from "./components/public/contact/contact.component";
 
@@ -24,6 +23,10 @@ const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path:"private-modules",
+    loadChildren: () => import('./components/private/private-modules/private-modules.module').then(m => m.PrivateModulesModule)
   },
   { path: '**', component: Page404Component }
 ];

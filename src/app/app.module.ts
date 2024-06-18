@@ -34,8 +34,6 @@ import { ContactComponent } from './components/public/contact/contact.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

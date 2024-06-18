@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form [formGroup]="addProjectForm" (ngSubmit)="save()">
+
+        <div class="form-group">
+          <label for="title">Title Project</label>
+          <input formControlName="title" type="text" id="title" class="form-control">
+        </div>
+        <div *ngIf="titleP?.touched && titleP?.invalid">
+          <small *ngIf="titleP?.errors!['required']" class="text-danger">Title is required <br></small>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description Project</label>
+          <input formControlName="description" type="text" id="description" class="form-control">
+        </div>
+        <div *ngIf="descriptionP?.touched && descriptionP?.invalid">
+          <small *ngIf="descriptionP?.errors!['required']" class="text-danger">Description is required <br></small>
+        </div>
+
+        <div class="form-group">
+          <label for="link">Link Project</label>
+          <input formControlName="link" type="text" id="link" class="form-control">
+        </div>
+        <div *ngIf="LinkP?.touched && LinkP?.invalid">
+          <small *ngIf="LinkP?.errors!['required']" class="text-danger">Link is required <br></small>
+        </div>
+
+        <div class="form-group">
+          <input type="file" formControlName="image" (change)="onFileSelected($event)">
+          <!-- Display image preview if needed -->
+          <img [src]="imageUrl" *ngIf="imageUrl" alt="Selected Image">
+        </div>
+        <div *ngIf="ImageP?.touched && ImageP?.invalid">
+          <small *ngIf="ImageP?.errors!['required']" class="text-danger">Image is required <br></small>
+        </div>
+        <br>
+        <div class="form-group">
+          <select formControlName="type" id="type" >
+            <option value="" disabled>Select type</option>
+            <option value="static">Static</option>
+            <option value="dynamic">Dynamic</option>
+          </select>
+        </div>
+        <div *ngIf="typeP?.touched && typeP?.invalid">
+          <small *ngIf="typeP?.errors!['required']" class="text-danger">Type is required <br></small>
+        </div>
+        <br>
+        <div class="form-group">
+          <select formControlName="hosted" id="hosted">
+            <option value="" disabled>Select hosting status</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+        <div *ngIf="hostedP?.touched && hostedP?.invalid">
+          <small *ngIf="hostedP?.errors!['required']" class="text-danger">Hosted status is required <br></small>
+        </div>
+
+        <br>
+        <input [disabled]="addProjectForm.invalid" type="submit" value="Add Project" class="btn btn-info">
+      </form>
+    </div>
+  </div>
+</div>
