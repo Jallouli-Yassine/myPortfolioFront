@@ -7,7 +7,8 @@ import {Project} from "../_models/project";
   providedIn: 'root'
 })
 export class ProjectService {
-  private apiUrl = 'http://localhost:3000/project';
+  //private apiUrl = 'http://localhost:3000/project';
+  private apiUrl = 'https://my-portfolio-six-alpha-53.vercel.app/project';
 //allProjects
   constructor(private http: HttpClient) { }
 

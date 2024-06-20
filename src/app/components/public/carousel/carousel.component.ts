@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, AfterViewChecked} from '@angular/core';
-import {tns} from "tiny-slider";
+//import {tns} from "tiny-slider";
 import {Testimonial} from "../../../_models/testimonial";
 import {TestimonialService} from "../../../_services/testimonial.service";
 
@@ -8,7 +8,7 @@ import {TestimonialService} from "../../../_services/testimonial.service";
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
 })
-export class CarouselComponent implements OnInit, AfterViewChecked {
+export class CarouselComponent implements OnInit /*AfterViewChecked*/ {
   testimonialList: Testimonial[] = [];
   sliderInitialized = false;
 
@@ -19,40 +19,42 @@ export class CarouselComponent implements OnInit, AfterViewChecked {
       this.testimonialList = t;
     });
   }
-
-  ngAfterViewChecked(): void {
-    if (!this.sliderInitialized && this.testimonialList.length) {
-      this.initializeSlider();
+  /*
+    ngAfterViewChecked(): void {
+      if (!this.sliderInitialized && this.testimonialList.length) {
+        this.initializeSlider();
+      }
     }
-  }
 
-  initializeSlider(): void {
-    const slider = tns({
-      container: '.testimonial-carousel',
-      loop: false,  // Disable infinite loop
-      items: 3,
-      responsive: {
-        0: {
-          items: 1
+    initializeSlider(): void {
+      const slider = tns({
+        container: '.testimonial-carousel',
+        loop: false,  // Disable infinite loop
+        items: 3,
+        responsive: {
+          0: {
+            items: 1
+          },
+          768: {
+            items: 2
+          },
+          1200: {
+            items: 3
+          }
         },
-        768: {
-          items: 2
-        },
-        1200: {
-          items: 3
-        }
-      },
-      slideBy: 'page',
-      nav: false,
-      autoplay: false,  // Disable autoplay if you don't want continuous sliding
-      mouseDrag: true,
-      lazyload: true,
-      gutter: 30,
-      navPosition: 'bottom',
-      controls: true,  // Enable controls for manual navigation
-      speed: 800,
-    });
+        slideBy: 'page',
+        nav: false,
+        autoplay: false,  // Disable autoplay if you don't want continuous sliding
+        mouseDrag: true,
+        lazyload: true,
+        gutter: 30,
+        navPosition: 'bottom',
+        controls: true,  // Enable controls for manual navigation
+        speed: 800,
+      });
 
-    this.sliderInitialized = true;
-  }
+      this.sliderInitialized = true;
+    }
+
+   */
 }

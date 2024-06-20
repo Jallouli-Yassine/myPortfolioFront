@@ -1,7 +1,7 @@
-import { Skills } from './skills';
+import { Skill } from './skills';
 
 describe('Skills', () => {
   it('should create an instance', () => {
-    expect(new Skills()).toBeTruthy();
+    expect(new Skill()).toBeTruthy();
   });
 });

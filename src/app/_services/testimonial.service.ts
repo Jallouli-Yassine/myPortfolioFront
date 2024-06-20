@@ -9,7 +9,8 @@ import {Testimonial} from "../_models/testimonial";
 export class TestimonialService {
 
 
-  private apiUrl = 'http://localhost:3000/testimonial';
+  private apiUrl = 'https://my-portfolio-six-alpha-53.vercel.app/testimonial';
+  //private apiUrl = 'http://localhost:3000/testimonial';
 
   constructor(private http: HttpClient) { }
 
