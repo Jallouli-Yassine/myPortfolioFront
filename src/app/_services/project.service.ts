@@ -8,7 +8,7 @@ import {Project} from "../_models/project";
 })
 export class ProjectService {
   //private apiUrl = 'http://localhost:3000/project';
-  private apiUrl = 'https://my-portfolio-six-alpha-53.vercel.app/project';
+  private apiUrl = 'https://myportfolio-production-e703.up.railway.app/project';
 //allProjects
   constructor(private http: HttpClient) { }
 

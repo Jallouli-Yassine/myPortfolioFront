@@ -8,7 +8,7 @@ import {Skill} from "../_models/skills";
 })
 export class SkillService {
 
-  private apiUrl = 'https://my-portfolio-six-alpha-53.vercel.app/skill';
+  private apiUrl = 'https://myportfolio-production-e703.up.railway.app/skill';
   //private apiUrl = 'http://localhost:3000/skill';
 
   constructor(private http: HttpClient) { }
