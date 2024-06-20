@@ -13,6 +13,7 @@ export class SkillsComponent implements OnInit {
   skillsList: Skill[] = [];
   toolsList: Skill[] = [];
   //activeFilter: string = 'All'; // Default active filter
+  isLoading: boolean = true;
 
   constructor(private skillsService: SkillService) { }
 
@@ -20,6 +21,7 @@ export class SkillsComponent implements OnInit {
     this.skillsService.getSkills().subscribe(skills => {
       this.toolsList=skills.filter(skill => skill.category === 'Tool');
       this.skillsList = skills.filter(skill => skill.category !== 'Tool');
+        this.isLoading = false;
     });
 
   }

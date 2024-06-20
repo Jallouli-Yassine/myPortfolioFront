@@ -10,12 +10,14 @@ import { ProjectService } from 'src/app/_services/project.service';
 export class ProjectComponent implements OnInit {
   projectsList: Project[] = [];
   activeFilter: string = 'All'; // Default active filter
+  isLoading: boolean = true;
 
   constructor(private projectService: ProjectService) { }
 
   ngOnInit(): void {
     this.projectService.getProjects().subscribe(projects => {
       this.projectsList = projects;
+      this.isLoading = false;
     });
   }
 

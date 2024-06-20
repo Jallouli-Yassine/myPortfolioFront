@@ -7,6 +7,9 @@
       <h2 class="section-title font-weight-bold mb-3">Main technologies </h2>
 
       <div class="row">
+        <div *ngIf="isLoading" class="loading-container">
+          <p>Loading...</p>
+        </div>
 
         <div *ngFor="let s of skillsList; let index = index" class="item col-6 col-lg-3 mb-5">
           <div class="item-inner">
@@ -20,7 +23,9 @@
         </div><!--//item-->
 
         <h2 style="margin-left: 1.2%" class="section-title font-weight-bold mb-3">Tools i use </h2>
-
+        <div *ngIf="isLoading" class="loading-container">
+          <p>Loading...</p>
+        </div>
         <div *ngFor="let s of toolsList; let index = index" class="item col-6 col-lg-3 mb-5">
           <div class="item-inner">
             <div class="item-icon">

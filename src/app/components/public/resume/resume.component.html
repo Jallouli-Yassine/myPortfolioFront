@@ -6,9 +6,13 @@
     </div><!--//container-->
   </section>
   <div class="container resume-container px-3 px-lg-5">
-    <article class="resume-wrapper mx-auto p-5 mb-5 my-5 shadow-lg">
+
+    <article  class="resume-wrapper mx-auto p-5 mb-5 my-5 shadow-lg">
       <div class="resume-container">
-        <div style="position: relative; width: 100%; height: 0; padding-top: 141.4286%; padding-bottom: 0; margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+        <div *ngIf="isLoading" class="loading-container">
+          <p>Loading...</p>
+        </div>
+        <div *ngIf="!isLoading" style="position: relative; width: 100%; height: 0; padding-top: 141.4286%; padding-bottom: 0; margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
           <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0; background-color: transparent;" src="https://www.canva.com/design/DAFdRlFrLrM/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
         </div>
       </div>

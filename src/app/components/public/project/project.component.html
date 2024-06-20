@@ -1,4 +1,3 @@
-
 <div class="main-wrapper">
   <section class="cta-section theme-bg-light py-5">
     <div class="container text-center single-col-max-width">
@@ -23,41 +22,45 @@
       </div>
 
       <div class="project-cards row isotope">
-        <div *ngFor="let p of getFilteredProjects(); let index = index" class="isotope-item col-md-6 mb-5 mobileapp frontend">
-          <div class="card project-card">
-            <div class="row">
-              <div class="col-12 col-xl-5 card-img-holder">
-                <img class="card-img" [src]=" 'http://localhost:3000/uploads/' + p.image" alt="{{ p.title }}">
-              </div>
-              <div class="col-12 col-xl-7">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="project.html" class="theme-link">{{ p.title }}</a></h5>
-                  hosted : {{ p.hosted? 'yes':'no' }}
-                  <br>
-                  type : {{ p.type }}
-                  <p class="card-text"><small class="text-muted">{{ p.description }}</small></p>
-                </div>
-              </div>
-            </div>
-            <div class="link-mask">
-              <a class="link-mask-link" href="project.html"></a>
-              <div class="link-mask-text">
+        <div *ngIf="isLoading" class="loading-container">
+          <p>Loading...</p>
+        </div>
 
-                <a *ngIf="p.hosted" class="btn btn-secondary" href="project.html">
-                  <i class="fas fa-eye me-2"></i>Live Demo
-                </a>
-                <br> <br>
-                <a class="btn btn-secondary" href="project.html">
-                  <i class="fas fa-eye me-2"></i>Github
-                </a>
-              </div>
-            </div><!--//link-mask-->
-          </div><!--//card-->
-        </div><!--//col-->
+          <div  *ngFor="let p of getFilteredProjects(); let index = index" class="isotope-item col-md-4 mb-5 mobileapp frontend">
+            <div class="card project-card">
+              <div class="row">
+                <div class="col-12 card-img-holder">
+                  <img  class="card-img" [src]=" 'http://localhost:3000/uploads/' + p.image" alt="{{ p.title }}">
+                </div>
+                <div class="col-12">
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="project.html" class="theme-link">{{ p.title }}</a></h5>
+                    hosted : {{ p.hosted? 'yes':'no' }}
+                    <br>
+                    type : {{ p.type }}
+                    <p class="card-text"><small class="text-muted">{{ p.description }}</small></p>
+                  </div>
+                </div>
+              <div class="link-mask">
+                <a class="link-mask-link" href="project.html"></a>
+                <div class="link-mask-text">
+
+                  <a *ngIf="p.hosted" class="btn btn-warning" target="_blank" href="{{p.link}}">
+                    <i class="fas fa-eye me-2"></i>Live Demo
+                  </a>
+
+                  <a *ngIf="!p.hosted"  class="btn btn-secondary" href="{{p.link}}" target="_blank">
+                    <i class="fab fa-github-alt fa-fw me-2"></i>Github
+                  </a>
+                </div>
+              </div><!--//link-mask-->
+            </div><!--//card-->
+          </div><!--//col-->
+
+        </div>
       </div><!--//row-->
     </div>
   </section>
 
 
 </div><!--//main-wrapper-->
-
