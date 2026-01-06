@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/_models/project';
 import { ProjectService } from 'src/app/_services/project.service';
+import { TranslationService } from 'src/app/_services/translation.service';
 
 @Component({
   selector: 'app-project',
@@ -9,10 +10,10 @@ import { ProjectService } from 'src/app/_services/project.service';
 })
 export class ProjectComponent implements OnInit {
   projectsList: Project[] = [];
-  activeFilter: string = 'All'; // Default active filter
+  activeFilter: string = 'All';
   isLoading: boolean = true;
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, public t: TranslationService) { }
 
   ngOnInit(): void {
     this.projectService.getProjects().subscribe(projects => {
@@ -20,7 +21,6 @@ export class ProjectComponent implements OnInit {
       this.isLoading = false;
     });
   }
-
 
   getFilteredProjects(): Project[] {
     if (this.activeFilter === 'All') {
@@ -31,5 +31,13 @@ export class ProjectComponent implements OnInit {
 
   setActiveFilter(type: string): void {
     this.activeFilter = type;
+  }
+
+  getHostedCount(): number {
+    return this.projectsList.filter(project => project.hosted).length;
+  }
+
+  getDynamicCount(): number {
+    return this.projectsList.filter(project => project.type === 'dynamic').length;
   }
 }

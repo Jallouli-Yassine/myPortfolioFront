@@ -1,69 +1,116 @@
 <div class="main-wrapper">
-  <section class="cta-section theme-bg-light py-5">
-    <div class="container text-center single-col-max-width">
-      <h2 class="heading">Portfolio</h2>
-      <div class="intro">
-        <p>Welcome to my online portfolio. With a strong foundation in software development and a passion for creating innovative solutions in building high-quality software for clients worldwide. Whether you need help with frontend, backend, or full-stack development, I'm here to assist you.</p>
-
-      </div>
-     <!--
-           <a class="btn btn-primary" href="contact.html" target="_blank"><i class="fas fa-paper-plane me-2"></i>Hire Me</a>
-
-     -->
-
-
-    </div><!--//container-->
-  </section>
-  <section class="projects-list px-3 py-5 p-md-5">
-    <div class="container">
-      <div class="text-center">
-        <ul id="filters" class="filters mb-5 mx-auto ps-0">
-          <li class="type" [ngClass]="{ 'active': activeFilter === 'All' }" (click)="setActiveFilter('All')">All</li>
-          <li class="type" [ngClass]="{ 'active': activeFilter === 'dynamic' }" (click)="setActiveFilter('dynamic')">Dynamic</li>
-          <li class="type" [ngClass]="{ 'active': activeFilter === 'static' }" (click)="setActiveFilter('static')">Static</li>
-        </ul><!--//filters-->
-      </div>
-
-      <div class="project-cards row isotope">
-        <div *ngIf="isLoading" class="loading-container">
-          <p>Loading...</p>
+  <!-- Hero Header -->
+  <section class="portfolio-header theme-bg-light py-5">
+    <div class="container text-center">
+      <h1 class="page-title mb-3">
+        <span class="text-gradient">{{ t.translate('projects.title') }}</span>
+      </h1>
+      <p class="page-intro mx-auto">{{ t.translate('projects.intro') }}</p>
+      
+      <!-- Stats Cards -->
+      <div class="stats-container mt-5">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="stat-number">{{ projectsList.length }}</div>
+          <div class="stat-label">{{ t.translate('projects.count') }}</div>
         </div>
-
-          <div  *ngFor="let p of getFilteredProjects(); let index = index" class="isotope-item col-md-4 mb-5 mobileapp frontend">
-            <div class="card project-card">
-              <div class="row">
-                <div class="col-12 card-img-holder">
-                  <img  class="card-img" [src]=" 'https://myportfolio-production-e703.up.railway.app/uploads/' + p.image" alt="{{ p.title }}">
-                </div>
-                <div class="col-12">
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="project.html" class="theme-link">{{ p.title }}</a></h5>
-                    hosted : {{ p.hosted? 'yes':'no' }}
-                    <br>
-                    type : {{ p.type }}
-                    <p class="card-text"><small class="text-muted">{{ p.description }}</small></p>
-                  </div>
-                </div>
-              <div class="link-mask">
-                <a class="link-mask-link" href="project.html"></a>
-                <div class="link-mask-text">
-
-                  <a *ngIf="p.hosted" class="btn btn-warning" target="_blank" href="{{p.link}}">
-                    <i class="fas fa-eye me-2"></i>Live Demo
-                  </a>
-
-                  <a *ngIf="!p.hosted"  class="btn btn-secondary" href="{{p.link}}" target="_blank">
-                    <i class="fab fa-github-alt fa-fw me-2"></i>Github
-                  </a>
-                </div>
-              </div><!--//link-mask-->
-            </div><!--//card-->
-          </div><!--//col-->
-
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <div class="stat-number">{{ getHostedCount() }}</div>
+          <div class="stat-label">{{ t.translate('projects.liveDemos') }}</div>
         </div>
-      </div><!--//row-->
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-layer-group"></i>
+          </div>
+          <div class="stat-number">{{ getDynamicCount() }}</div>
+          <div class="stat-label">{{ t.translate('projects.fullStack') }}</div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- Projects Section -->
+  <section class="projects-section px-3 py-5 p-md-5">
+    <div class="container">
+      <!-- Filter Tabs -->
+      <div class="filter-container text-center mb-5">
+        <div class="filter-tabs">
+          <button class="filter-tab" [class.active]="activeFilter === 'All'" (click)="setActiveFilter('All')">
+            <i class="fas fa-th-large me-2"></i>{{ t.translate('projects.all') }}
+          </button>
+          <button class="filter-tab" [class.active]="activeFilter === 'dynamic'" (click)="setActiveFilter('dynamic')">
+            <i class="fas fa-server me-2"></i>{{ t.translate('projects.fullStack') }}
+          </button>
+          <button class="filter-tab" [class.active]="activeFilter === 'static'" (click)="setActiveFilter('static')">
+            <i class="fas fa-palette me-2"></i>{{ t.translate('projects.frontend') }}
+          </button>
+        </div>
+      </div>
 
-</div><!--//main-wrapper-->
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="loading-grid">
+        <div class="skeleton-card" *ngFor="let i of [1,2,3,4,5,6]">
+          <div class="skeleton-image"></div>
+          <div class="skeleton-content">
+            <div class="skeleton-title"></div>
+            <div class="skeleton-text"></div>
+            <div class="skeleton-text short"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" *ngIf="!isLoading">
+        <div *ngFor="let p of getFilteredProjects(); let i = index" 
+             class="project-card-wrapper"
+             [style.animation-delay]="(i * 0.1) + 's'">
+          <div class="project-card">
+            <!-- Project Image -->
+            <div class="project-image-container">
+              <img [src]="p.image" [alt]="p.title" class="project-image">
+              <div class="project-overlay">
+                <div class="overlay-content">
+                  <a *ngIf="p.hosted" [href]="p.link" target="_blank" class="overlay-btn primary">
+                    <i class="fas fa-external-link-alt"></i>
+                    {{ t.translate('projects.liveDemo') }}
+                  </a>
+                  <a [href]="p.link" target="_blank" class="overlay-btn secondary">
+                    <i class="fab fa-github"></i>
+                    {{ t.translate('projects.viewCode') }}
+                  </a>
+                </div>
+              </div>
+              <!-- Project Type Badge -->
+              <div class="project-badge" [class.dynamic]="p.type === 'dynamic'" [class.static]="p.type === 'static'">
+                <i [class]="p.type === 'dynamic' ? 'fas fa-cogs' : 'fas fa-paint-brush'"></i>
+                {{ p.type === 'dynamic' ? t.translate('projects.fullStack') : t.translate('projects.frontend') }}
+              </div>
+            </div>
+
+            <!-- Project Info -->
+            <div class="project-info">
+              <h3 class="project-title">{{ p.title }}</h3>
+              <p class="project-description">{{ p.description }}</p>
+              
+              <!-- Project Meta -->
+              <div class="project-meta">
+                <span class="meta-item" [class.active]="p.hosted">
+                  <i [class]="p.hosted ? 'fas fa-check-circle' : 'fas fa-code-branch'"></i>
+                  {{ p.hosted ? t.translate('projects.live') : t.translate('projects.sourceCode') }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div *ngIf="!isLoading && getFilteredProjects().length === 0" class="empty-state">
+        <i class="fas fa-folder-open"></i>
+        <h3>{{ t.translate('projects.noProjects') }}</h3>
+        <p>{{ t.translate('projects.noMatch') }}</p>

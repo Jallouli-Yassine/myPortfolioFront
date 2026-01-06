@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {TranslationService} from "../../../_services/translation.service";
+import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-resume',
@@ -6,18 +8,22 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit {
-  isLoading: boolean = true;
+  cvPath: string = '';
+  safeCvUrl: SafeResourceUrl = '';
 
-  constructor() {}
+  constructor(public t: TranslationService, private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    this.loadResume();
+    this.updateCvPath();
+    // S'abonner aux changements de langue
+    this.t.currentLang$.subscribe(() => {
+      this.updateCvPath();
+    });
   }
 
-  loadResume() {
-    // Simulate an async operation (e.g., fetching data from an API)
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1000); // Simulating a 2-second delay
+  updateCvPath() {
+    const lang = this.t.getLanguage();
+    this.cvPath = lang === 'fr' ? 'assets/cv/cv fr.pdf' : 'assets/cv/cv ang.pdf';
+    this.safeCvUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.cvPath);
   }
 }

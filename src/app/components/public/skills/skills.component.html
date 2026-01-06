@@ -2,19 +2,19 @@
 
   <section class="overview-section p-3 p-lg-5">
     <div class="container">
-      <h2 class="section-title font-weight-bold mb-3">What I do</h2>
-      <div class="section-intro mb-5">I am a seasoned software developer with over 5 years of experience building high-quality software solutions for clients globally. My expertise spans various domains and technologies, allowing me to deliver robust, scalable, and efficient solutions tailored to meet client needs. Below is a quick overview of my core technical skill sets and the technologies I utilize:</div>
-      <h2 class="section-title font-weight-bold mb-3">Main technologies </h2>
+      <h2 class="section-title font-weight-bold mb-3">{{ t.translate('skills.whatIDo') }}</h2>
+      <div class="section-intro mb-5">{{ t.translate('skills.intro') }}</div>
+      <h2 class="section-title font-weight-bold mb-3">{{ t.translate('skills.mainTech') }}</h2>
 
       <div class="row">
         <div *ngIf="isLoading" class="loading-container">
-          <p>Loading...</p>
+          <p>{{ t.translate('loading') }}</p>
         </div>
 
         <div *ngFor="let s of skillsList; let index = index" class="item col-6 col-lg-3 mb-5">
           <div class="item-inner">
             <div class="item-icon">
-              <img width="48" [src]=" 'https://myportfolio-production-e703.up.railway.app/uploads/skills/' + s.image" alt="{{ s.name }}">
+              <img width="48" [src]="s.image" alt="{{ s.name }}">
 
             </div>
             <h3 class="item-title">{{s.name}}</h3>
@@ -22,14 +22,14 @@
           </div><!--//item-inner-->
         </div><!--//item-->
 
-        <h2 style="margin-left: 1.2%" class="section-title font-weight-bold mb-3">Tools i use </h2>
+        <h2 style="margin-left: 1.2%" class="section-title font-weight-bold mb-3">{{ t.translate('skills.tools') }}</h2>
         <div *ngIf="isLoading" class="loading-container">
-          <p>Loading...</p>
+          <p>{{ t.translate('loading') }}</p>
         </div>
         <div *ngFor="let s of toolsList; let index = index" class="item col-6 col-lg-3 mb-5">
           <div class="item-inner">
             <div class="item-icon">
-              <img width="48" [src]=" 'https://myportfolio-production-e703.up.railway.app/uploads/skills/' + s.image" alt="{{ s.name }}">
+              <img width="48" [src]="s.image" alt="{{ s.name }}">
             </div>
             <h3 class="item-title">{{s.name}}</h3>
             <div class="item-desc"> {{s.description}} </div>

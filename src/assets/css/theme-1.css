@@ -13743,7 +13743,7 @@ textarea.form-control {
   display: inline-block;
   width: 5px;
   height: 100%;
-  background: #54B689;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
   position: absolute;
   left: 0;
   top: 0

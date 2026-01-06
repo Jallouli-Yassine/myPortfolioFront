@@ -1,21 +1,22 @@
 <div class="main-wrapper">
   <section class="cta-section theme-bg-light py-5">
     <div class="container text-center single-col-max-width">
-      <h2 class="heading mb-3">Online Resume</h2>
-      <a class="btn btn-primary" href="assets/JallouliYassineResume.pdf" download><i class="fas fa-file-pdf me-2"></i>Download PDF Version</a>
+      <h2 class="heading mb-3">{{ t.translate('resume.title') }}</h2>
+      <a class="btn btn-primary" [href]="cvPath" download="Jallouli_Yassine_CV.pdf"><i class="fas fa-file-pdf me-2"></i>{{ t.translate('resume.download') }}</a>
     </div><!--//container-->
   </section>
   <div class="container resume-container px-3 px-lg-5">
 
-    <article  class="resume-wrapper mx-auto p-5 mb-5 my-5 shadow-lg">
+    <article class="resume-wrapper mx-auto p-5 mb-5 my-5 shadow-lg">
       <div class="resume-container">
-        <div *ngIf="isLoading" class="loading-container">
-          <p>Loading...</p>
-        </div>
-        <div *ngIf="!isLoading" style="position: relative; width: 100%; height: 0; padding-top: 141.4286%; padding-bottom: 0; margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
-          <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0; background-color: transparent;" src="https://www.canva.com/design/DAFdRlFrLrM/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
-        </div>
+        <iframe 
+          [src]="safeCvUrl" 
+          width="100%" 
+          height="1000px" 
+          style="border: none; border-radius: 8px;">
+        </iframe>
       </div>
     </article>
   </div><!--//container-->
 </div><!--//main-wrapper-->
+  

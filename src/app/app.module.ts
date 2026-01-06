@@ -17,6 +17,7 @@ import { SkillsANDcarouselComponent } from './components/public/skills-andcarous
 import { ContactComponent } from './components/public/contact/contact.component';
 import { AddSkillComponent } from './components/private/private-modules/add-skill/add-skill.component';
 import { DarkModeToggleComponent } from './dark-mode-toggle/dark-mode-toggle.component';
+import { LanguageToggleComponent } from './components/language-toggle/language-toggle.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DarkModeToggleComponent } from './dark-mode-toggle/dark-mode-toggle.com
     ContactComponent,
     AddSkillComponent,
     DarkModeToggleComponent,
+    LanguageToggleComponent,
   ],
   imports: [
     BrowserModule,

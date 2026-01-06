@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {SkillService} from "../../../../_services/skill.service";
-import {NgForm} from "@angular/forms";
-import {Skill} from "../../../../_models/skills";
+import { Component, OnInit } from '@angular/core';
+import { SkillService } from '../../../../_services/skill.service';
+import { NgForm } from '@angular/forms';
+import { Skill } from '../../../../_models/skills';
 
 @Component({
   selector: 'app-add-skill',
@@ -10,62 +10,56 @@ import {Skill} from "../../../../_models/skills";
 })
 export class AddSkillComponent implements OnInit {
 
-
-  skill :Skill= {
+  skill: Skill = {
     name: '',
     description: '',
-    // @ts-ignore
-    category: '',
-    // @ts-ignore
-    proficiency: '',
+    category: 'Frontend',
+    proficiency: 'Intermediate',
     image: '',
   };
-  constructor(private skillService:SkillService) {}
-  imageOptions: string[] = [];  // Array to hold image filenames
+  
+  imageOptions: string[] = [];
+  showInstructions: boolean = true;
+
+  constructor(private skillService: SkillService) {}
 
   ngOnInit() {
-    this.fetchImageOptions();  // Fetch image filenames when component initializes
-    console.log(this.imageOptions);
-  }
-  fetchImageOptions() {
-    // Assuming your backend endpoint returns an array of image filenames
-    this.skillService.getPicsSkills().subscribe((pics: string[])=>{
-      this.imageOptions = pics
-    } );
-  }
-  /*
-  onFileSelected(event: any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.skill.image = file.name;  // Assuming you want to store the filename
-    }
+    this.fetchImageOptions();
   }
 
-   */
-   removeExtension(filename: string): string {
+  fetchImageOptions() {
+    // Récupère les options d'images depuis le service (données locales)
+    this.skillService.getPicsSkills().subscribe(options => {
+      this.imageOptions = options;
+    });
+  }
+
+  removeExtension(filename: string): string {
     const lastDotIndex = filename.lastIndexOf('.');
-    if (lastDotIndex === -1) return filename; // No extension found
+    if (lastDotIndex === -1) return filename;
     return filename.substring(0, lastDotIndex);
   }
 
-  /*
-  removeExtension(text:string): string {
-    return text.replace(/\.[^/.]+$/, "");
-  }
-  */
+  /**
+   * En mode frontend-only, les compétences doivent être ajoutées
+   * directement dans le fichier src/app/_data/data.ts
+   */
   onSubmit(formUser: NgForm) {
     if (formUser.valid) {
-        this.skill.name = this.removeExtension(this.skill.image!);
-        this.skillService.addSkill(this.skill).subscribe(
-          response => {
-            console.log(response);
-            //this.r.navigate(['projects']);
-          },
-          error => {
-            console.log(error);
-          }
-        );
-      }
-
+      this.skill.name = this.removeExtension(this.skill.image!);
+      
+      // Affiche les instructions pour ajouter manuellement la compétence
+      const skillJson = JSON.stringify({
+        name: this.skill.name,
+        description: this.skill.description,
+        category: this.skill.category,
+        proficiency: this.skill.proficiency,
+        image: `assets/images/skills/${this.skill.image}`
+      }, null, 2);
+      
+      alert(`📝 Mode Frontend-Only\n\nPour ajouter cette compétence, copiez ce code dans le fichier:\nsrc/app/_data/data.ts\n\nDans le tableau SKILLS_DATA:\n\n${skillJson}`);
+      
+      console.log('Nouvelle compétence à ajouter dans _data/data.ts:', this.skill);
+    }
   }
 }
