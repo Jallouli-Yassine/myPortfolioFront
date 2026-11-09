@@ -23,12 +23,12 @@ export class TranslationService {
     'nav.projects': { fr: 'Projets', en: 'Projects' },
     'nav.resume': { fr: 'CV', en: 'Resume' },
     'nav.contact': { fr: 'Contact', en: 'Contact' },
-    'nav.bio': { fr: 'Ingénieur Full-Stack spécialisé en architectures cloud et microservices. Expert Angular, Spring Boot, DevOps CI/CD. Découvrez mes réalisations!', en: 'Full-Stack Engineer specialized in cloud architectures and microservices. Expert in Angular, Spring Boot, DevOps CI/CD. Discover my achievements!' },
+    'nav.bio': { fr: 'Ingénieur logiciel spécialisé en développement Full-Stack, IA et ingénierie des données.', en: 'Software Engineer focused on Full-Stack development, AI, and Data Engineering.' },
 
     // Hero Section
     'hero.greeting': { fr: 'Bonjour, je suis', en: 'Hello, I\'m' },
-    'hero.title': { fr: 'Ingénieur Informatique | Full-Stack Developer', en: 'Computer Engineer | Full-Stack Developer' },
-    'hero.bio': { fr: 'Ingénieur Full-Stack avec expertise en Angular, Spring Boot, Docker et Azure. Je conçois des solutions scalables et performantes, de l\'architecture microservices aux pipelines CI/CD automatisés.', en: 'Full-Stack Engineer with expertise in Angular, Spring Boot, Docker and Azure. I design scalable and high-performance solutions, from microservices architecture to automated CI/CD pipelines.' },
+    'hero.title': { fr: 'Ingénieur Logiciel IA & Data | Développeur Full-Stack', en: 'AI & Data Software Engineer | Full-Stack Developer' },
+    'hero.bio': { fr: 'Je conçois des applications scalables et des solutions data-driven avec Angular, Spring Boot, Python, SQL, RAG et les technologies LLM.', en: 'I build scalable applications and data-driven solutions with Angular, Spring Boot, Python, SQL, RAG, and LLM technologies.' },
     'hero.viewProjects': { fr: 'Voir les Projets', en: 'View Projects' },
     'hero.myResume': { fr: 'Mon CV', en: 'My Resume' },
     'hero.scrollDown': { fr: 'Défiler', en: 'Scroll Down' },
@@ -37,13 +37,13 @@ export class TranslationService {
 
     // Skills Section
     'skills.whatIDo': { fr: 'Ce que je fais', en: 'What I do' },
-    'skills.intro': { fr: 'Ingénieur en informatique diplômé, je me spécialise dans le développement d\'applications web Full-Stack et les architectures microservices. Je maîtrise les outils DevOps modernes (Docker, Kubernetes, GitLab CI/CD) et je suis toujours motivé à apprendre de nouvelles technologies. Voici un aperçu de mes compétences techniques :', en: 'Computer Engineering graduate, I specialize in Full-Stack web application development and microservices architectures. I master modern DevOps tools (Docker, Kubernetes, GitLab CI/CD) and I\'m always motivated to learn new technologies. Here\'s an overview of my technical skills:' },
+    'skills.intro': { fr: 'Ingénieur informatique spécialisé en développement Full-Stack, IA et ingénierie des données. Je transforme des besoins métier en applications fiables, pipelines data et fonctionnalités intelligentes prêtes pour la production.', en: 'Computer Engineer focused on Full-Stack development, AI, and Data Engineering. I turn business needs into reliable applications, data pipelines, and production-ready intelligent features.' },
     'skills.mainTech': { fr: 'Technologies principales', en: 'Main technologies' },
     'skills.tools': { fr: 'Outils que j\'utilise', en: 'Tools I use' },
 
     // Projects Section
     'projects.title': { fr: 'Mon Portfolio', en: 'My Portfolio' },
-    'projects.intro': { fr: 'Une vitrine de mes meilleurs travaux, présentant des applications web, des plateformes e-commerce et des projets frontend créatifs. Chaque projet représente mon engagement envers un code de qualité et une expérience utilisateur exceptionnelle.', en: 'A showcase of my best work, featuring web applications, e-commerce platforms, and creative frontend projects. Each project represents my commitment to quality code and exceptional user experience.' },
+    'projects.intro': { fr: 'Une sélection de projets Full-Stack, IA, Data et DevOps illustrant mon expérience dans la conception d\'applications utiles, scalables et prêtes pour la production.', en: 'A selection of Full-Stack, AI, Data, and DevOps projects demonstrating my experience building useful, scalable, production-ready applications.' },
     'projects.all': { fr: 'Tous les Projets', en: 'All Projects' },
     'projects.fullStack': { fr: 'Full-Stack', en: 'Full-Stack' },
     'projects.frontend': { fr: 'Frontend', en: 'Frontend' },
