@@ -8,9 +8,33 @@ import { Testimonial } from '../_models/testimonial';
 export const PROJECTS_DATA: Project[] = [
   {
     title: 'ArenaLink - PFE',
-    description: 'Developed ArenaLink, a full-stack web platform for managing local football matches in Tunisia using Spring Boot, Angular, and MySQL. Features include user & team management, stadium booking, online payments via Konnect, real-time chat, and live match streaming. Implemented CI/CD pipeline with Docker and GitHub Actions, with deployment to Microsoft Azure.',
+    description: 'Full-stack football management platform built with Spring Boot, Angular, and MySQL. Includes authentication, payments, real-time chat, live match management, stadium booking, AI-powered content generation, Docker, GitHub Actions, and Azure deployment.',
     link: 'https://github.com/Jallouli-Yassine',
     image: 'assets/images/project/teamMembers.PNG',
+    type: 'dynamic',
+    hosted: false
+  },
+  {
+    title: 'AI Resume Analyzer & Job Recommendation System',
+    description: 'LLM-powered application that extracts structured data from PDF resumes and delivers RAG-based job recommendations using LangChain, Hugging Face embeddings, Pydantic, and ChromaDB. Generates ATS feedback, interview questions, and tailored cover letters.',
+    link: 'https://github.com/Jallouli-Yassine',
+    image: 'assets/images/project/project-figure-1.jpg',
+    type: 'dynamic',
+    hosted: false
+  },
+  {
+    title: 'London Transport Data Analysis',
+    description: 'Analyzed 12+ years of Transport for London journey data from 2010 to 2022 using SQL and Snowflake. Identified transportation trends, peak usage periods, and unusual Underground traffic patterns through aggregation and exploratory analysis.',
+    link: 'https://github.com/Jallouli-Yassine',
+    image: 'assets/images/project/project-figure-2.jpg',
+    type: 'dynamic',
+    hosted: false
+  },
+  {
+    title: 'Student Productivity Prediction',
+    description: 'Machine learning pipeline trained on more than 20,000 student records. Covered preprocessing, feature engineering, exploratory analysis, and model comparison across Random Forest, Decision Tree, and Linear Regression using MAE and R².',
+    link: 'https://github.com/Jallouli-Yassine',
+    image: 'assets/images/project/project-3.jpg',
     type: 'dynamic',
     hosted: false
   },
@@ -24,7 +48,7 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     title: 'DevOps CI/CD Pipeline',
-    description: 'Designed and implemented a complete CI/CD pipeline with Jenkins, automating build, test, and deployment stages. Improved code quality with SonarQube integration and automated Docker builds deployed to Nexus. Implemented comprehensive system monitoring with Prometheus and Grafana dashboards for real-time metrics visualization.',
+    description: 'Automated build, test, quality analysis, and deployment workflows with Jenkins, Docker, and SonarQube. Added Prometheus and Grafana monitoring for real-time application metrics and operational visibility.',
     link: 'https://github.com/Jallouli-Yassine',
     image: 'https://www.learntek.org/blog/wp-content/uploads/2018/05/jenkins_image.png',
     type: 'dynamic',
