@@ -3,11 +3,15 @@
    ============================================ */
 
 .hero-section {
-  min-height: 90vh;
+  min-height: calc(100vh - 24px);
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(102, 126, 234, 0.13), transparent 28%),
+    radial-gradient(circle at 15% 90%, rgba(0, 194, 203, 0.1), transparent 30%),
+    #f8faff;
 }
 
 .hero-section::before {
@@ -39,6 +43,29 @@
 .hero-content {
   position: relative;
   z-index: 1;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  border-radius: 999px;
+  color: #53607a;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 8px 24px rgba(37, 54, 104, 0.06);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16c784;
+  box-shadow: 0 0 0 5px rgba(22, 199, 132, 0.12);
 }
 
 /* Greeting */
@@ -118,6 +145,55 @@
   line-height: 1.8;
   color: #555;
   max-width: 550px;
+}
+
+.hero-focus-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.focus-card {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 190px;
+  padding: 12px 14px;
+  border: 1px solid rgba(102, 126, 234, 0.14);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.68);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.focus-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(47, 66, 122, 0.1);
+}
+
+.focus-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.11);
+}
+
+.focus-card strong,
+.focus-card small {
+  display: block;
+}
+
+.focus-card strong {
+  color: #26314f;
+  font-size: 0.9rem;
+}
+
+.focus-card small {
+  margin-top: 2px;
+  color: #78829a;
+  font-size: 0.72rem;
 }
 
 .highlight {
@@ -234,6 +310,30 @@
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
 }
 
+.hero-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.hero-metrics div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-metrics strong {
+  color: #26314f;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.hero-metrics span {
+  color: #7a849a;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
 /* Profile Image */
 .hero-image-container {
   position: relative;
@@ -317,6 +417,21 @@
   bottom: 15%;
   left: -5%;
   animation-delay: -2s;
+}
+
+.orbit-label {
+  position: absolute;
+  right: -17%;
+  bottom: -7%;
+  padding: 10px 15px;
+  border: 1px solid rgba(102, 126, 234, 0.17);
+  border-radius: 999px;
+  color: #667eea;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 12px 30px rgba(37, 54, 104, 0.1);
+  font-size: 0.74rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 /* Scroll Indicator */
@@ -419,5 +534,23 @@
   .floating-card {
     padding: 8px 14px;
     font-size: 0.8rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.68rem;
+  }
+
+  .focus-card {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .hero-metrics {
+    gap: 16px;
+  }
+
+  .orbit-label {
+    right: 0;
+    bottom: -15%;
   }
 }

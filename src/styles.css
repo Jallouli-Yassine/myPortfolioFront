@@ -13,6 +13,37 @@
   --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.1);
   --shadow-strong: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --ink: #1d2742;
+  --muted-ink: #6f7890;
+  --surface: #ffffff;
+  --page-bg: #f8faff;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(102, 126, 234, 0.45);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Smooth Scrolling */
@@ -304,4 +335,3 @@ html {
   right: 10%;
   animation: float 10s ease-in-out infinite reverse;
 }
-
