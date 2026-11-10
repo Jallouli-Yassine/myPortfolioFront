@@ -4,35 +4,42 @@
     <div class="container">
       <h2 class="section-title font-weight-bold mb-3">{{ t.translate('skills.whatIDo') }}</h2>
       <div class="section-intro mb-5">{{ t.translate('skills.intro') }}</div>
-      <h2 class="section-title font-weight-bold mb-3">{{ t.translate('skills.mainTech') }}</h2>
+      <div class="skills-heading-row">
+        <div>
+          <span class="section-kicker">STACK / 01</span>
+          <h2 class="section-title font-weight-bold mb-2">{{ t.translate('skills.mainTech') }}</h2>
+        </div>
+        <span class="skills-count">{{ getFilteredSkills().length }} {{ t.translate('skills.technologies') }}</span>
+      </div>
+
+      <div class="skills-filter-bar mb-5" role="tablist" aria-label="Filter technologies">
+        <button
+          *ngFor="let filter of filters"
+          type="button"
+          class="skills-filter"
+          [class.active]="activeFilter === filter.key"
+          (click)="setActiveFilter(filter.key)"
+          role="tab"
+          [attr.aria-selected]="activeFilter === filter.key">
+          <i [class]="filter.icon"></i>
+          {{ t.translate(filter.label) }}
+        </button>
+      </div>
 
       <div class="row">
         <div *ngIf="isLoading" class="loading-container">
           <p>{{ t.translate('loading') }}</p>
         </div>
 
-        <div *ngFor="let s of skillsList; let index = index" class="item col-6 col-lg-3 mb-5">
+        <div *ngFor="let s of getFilteredSkills(); let index = index" class="item col-6 col-lg-3 mb-5">
           <div class="item-inner">
             <div class="item-icon">
-              <img width="48" [src]="s.image" alt="{{ s.name }}">
+              <img *ngIf="s.image" width="48" [src]="s.image" alt="{{ s.name }}">
 
             </div>
             <h3 class="item-title">{{s.name}}</h3>
             <div class="item-desc"> {{s.description}} </div>
-          </div><!--//item-inner-->
-        </div><!--//item-->
-
-        <h2 style="margin-left: 1.2%" class="section-title font-weight-bold mb-3">{{ t.translate('skills.tools') }}</h2>
-        <div *ngIf="isLoading" class="loading-container">
-          <p>{{ t.translate('loading') }}</p>
-        </div>
-        <div *ngFor="let s of toolsList; let index = index" class="item col-6 col-lg-3 mb-5">
-          <div class="item-inner">
-            <div class="item-icon">
-              <img width="48" [src]="s.image" alt="{{ s.name }}">
-            </div>
-            <h3 class="item-title">{{s.name}}</h3>
-            <div class="item-desc"> {{s.description}} </div>
+            <span class="skill-level">{{ s.proficiency }}</span>
           </div><!--//item-inner-->
         </div><!--//item-->
       </div><!--//row-->
@@ -42,4 +49,3 @@
   </section>
 
   <div class="container"><hr></div>
-

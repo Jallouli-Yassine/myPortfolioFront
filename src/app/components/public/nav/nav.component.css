@@ -6,6 +6,7 @@
   background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
   position: relative;
   overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .header::before {
@@ -40,13 +41,14 @@
 
 /* Profile Image */
 .profile-image {
-  width: 800;
-  height: 800;
+  width: 118px;
+  height: 118px;
   border: 4px solid transparent;
   background: linear-gradient(#16213e, #16213e) padding-box,
               linear-gradient(135deg, #667eea 0%, #764ba2 100%) border-box;
   transition: all 0.4s ease;
   box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+  object-fit: cover;
 }
 
 .profile-image:hover {
@@ -98,6 +100,11 @@
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   margin: 20px 0;
+}
+
+.profile-section {
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 /* Navigation Items */

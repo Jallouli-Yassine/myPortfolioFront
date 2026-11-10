@@ -241,6 +241,99 @@ export const SKILLS_DATA: Skill[] = [
     proficiency: 'Advanced',
     image: 'assets/images/skills/mysql.png'
   },
+  {
+    name: 'postgresql',
+    description: 'Open-source relational database used for reliable, scalable applications and data-intensive workloads.',
+    category: 'Databases & Cloud',
+    proficiency: 'Advanced',
+    image: 'assets/images/skills/mysql.png'
+  },
+  {
+    name: 'snowflake',
+    description: 'Cloud data platform used to analyze large datasets and build modern data warehouse workflows.',
+    category: 'Data Engineering',
+    proficiency: 'Intermediate',
+    image: 'assets/images/skills/azure.svg'
+  },
+  {
+    name: 'chromaDB',
+    description: 'Vector database used to store embeddings and power semantic search and retrieval-augmented generation.',
+    category: 'AI & LLM',
+    proficiency: 'Intermediate',
+    image: 'assets/images/skills/json.png'
+  },
+
+  // AI & Data Engineering
+  {
+    name: 'LLMs',
+    description: 'Large language model applications for content generation, document understanding, and intelligent automation.',
+    category: 'AI & LLM',
+    proficiency: 'Advanced',
+    image: 'assets/images/skills/python.png'
+  },
+  {
+    name: 'RAG',
+    description: 'Retrieval-Augmented Generation pipelines that ground language model responses in trusted knowledge sources.',
+    category: 'AI & LLM',
+    proficiency: 'Advanced',
+    image: 'assets/images/skills/json.png'
+  },
+  {
+    name: 'LangChain',
+    description: 'Framework for composing LLM workflows, retrieval pipelines, structured outputs, and AI agents.',
+    category: 'AI & LLM',
+    proficiency: 'Advanced',
+    image: 'assets/images/skills/python.png'
+  },
+  {
+    name: 'LangGraph',
+    description: 'Graph-based orchestration for building controllable, stateful, and multi-step AI agent workflows.',
+    category: 'AI & LLM',
+    proficiency: 'Intermediate',
+    image: 'assets/images/skills/python.png'
+  },
+  {
+    name: 'Prompt Engineering',
+    description: 'Designing reliable prompts and evaluation patterns for useful, consistent LLM-powered features.',
+    category: 'AI & LLM',
+    proficiency: 'Advanced',
+    image: 'assets/images/skills/json.png'
+  },
+  {
+    name: 'Pandas',
+    description: 'Python toolkit for data cleaning, transformation, analysis, and preparation for machine learning workflows.',
+    category: 'Data Engineering',
+    proficiency: 'Advanced',
+    image: 'assets/images/skills/python.png'
+  },
+  {
+    name: 'NumPy',
+    description: 'Numerical computing foundation for array operations, scientific computing, and machine learning preparation.',
+    category: 'Data Engineering',
+    proficiency: 'Advanced',
+    image: 'assets/images/skills/python.png'
+  },
+  {
+    name: 'Scikit-learn',
+    description: 'Machine learning toolkit used for preprocessing, model training, evaluation, and comparison.',
+    category: 'Data Engineering',
+    proficiency: 'Advanced',
+    image: 'assets/images/skills/python.png'
+  },
+  {
+    name: 'ETL & Data Pipelines',
+    description: 'Designing repeatable workflows to extract, transform, validate, and deliver data for analysis and applications.',
+    category: 'Data Engineering',
+    proficiency: 'Intermediate',
+    image: 'assets/images/skills/json.png'
+  },
+  {
+    name: 'SQL',
+    description: 'Query language for analytics, reporting, relational data modeling, and production application data access.',
+    category: 'Data Engineering',
+    proficiency: 'Advanced',
+    image: 'assets/images/skills/mysql.png'
+  },
 
   // Other
   {

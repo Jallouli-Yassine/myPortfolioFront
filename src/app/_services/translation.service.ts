@@ -40,6 +40,13 @@ export class TranslationService {
     'skills.intro': { fr: 'Ingénieur informatique spécialisé en développement Full-Stack, IA et ingénierie des données. Je transforme des besoins métier en applications fiables, pipelines data et fonctionnalités intelligentes prêtes pour la production.', en: 'Computer Engineer focused on Full-Stack development, AI, and Data Engineering. I turn business needs into reliable applications, data pipelines, and production-ready intelligent features.' },
     'skills.mainTech': { fr: 'Technologies principales', en: 'Main technologies' },
     'skills.tools': { fr: 'Outils que j\'utilise', en: 'Tools I use' },
+    'skills.technologies': { fr: 'technologies', en: 'technologies' },
+    'skills.filterAll': { fr: 'Tout', en: 'All' },
+    'skills.filterFullStack': { fr: 'Full-Stack', en: 'Full-Stack' },
+    'skills.filterAi': { fr: 'IA & LLM', en: 'AI & LLM' },
+    'skills.filterData': { fr: 'Ingénierie Data', en: 'Data Engineering' },
+    'skills.filterCloud': { fr: 'Bases de données & Cloud', en: 'Databases & Cloud' },
+    'skills.filterDevOps': { fr: 'DevOps & Outils', en: 'DevOps & Tools' },
 
     // Projects Section
     'projects.title': { fr: 'Mon Portfolio', en: 'My Portfolio' },
